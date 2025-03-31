@@ -41,6 +41,10 @@ public class LocatorsFactory extends UserActions {
 		public By searchBarId() {
 			return By.id("quickFilterInput");
 		}
+		
+		public By getStarIconLocator() {
+			return By.xpath("//i[contains(@class,'icon-favourite')]/..");
+		}
 
 	// element of health application
 
@@ -198,6 +202,20 @@ public class LocatorsFactory extends UserActions {
 		super(driver);
 
 	}
+	
+	//Helper code for TC-5 and 8
+		public boolean highlightAndClickOnElement(By element, String elementName) {
+			boolean isElementDisplayed = false;
+			try {
+				WebElement elementToBeClicked = userActions.findElement(element);
+				userActions.click(elementToBeClicked);
+				System.out.println("Clicked on " + elementName);
+				isElementDisplayed = true;
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			return isElementDisplayed;
+		}
 
 
 	public WebElement totalDoctorTextIsPresent(WebDriver driver) {
