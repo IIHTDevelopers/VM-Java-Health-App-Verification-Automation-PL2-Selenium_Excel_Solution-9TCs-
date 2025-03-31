@@ -189,8 +189,9 @@ public class verification_testcase extends AppTestBase {
 			+ "3. Click on \"OK\" button")
 	public void verifyResultDataIsAsPerTheSelectedDateRange() throws Exception {
 		verification_pageInstance = new verification_page(driver);
+		locatorsFactoryInstance = new LocatorsFactory(driver);
 
-		verification_pageInstance.highlightAndClickOnElement(verification_pageInstance.getStarIconLocator(),
+		locatorsFactoryInstance.highlightAndClickOnElement(locatorsFactoryInstance.getStarIconLocator(),
 		"Tool Tip");
 		Assert.assertTrue(verification_pageInstance.clickDateRangeDropdownAndSelect("Last 1 Month"));
 		LocalDate currentDate = LocalDate.now();
